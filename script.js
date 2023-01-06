@@ -44,3 +44,40 @@ function ativarBotao() {
     document.querySelector('button').removeAttribute('disabled')
   }
 }
+
+function enviarpedido() {
+  const prato = document.querySelector('.prato .selecionado h2').innerHTML
+  const bebida = document.querySelector('.bebida .selecionado h2').innerHTML
+  const sobremesa = document.querySelector(
+    '.sobremesa .selecionado h2'
+  ).innerHTML
+  const preco1 = document.querySelector('.prato .selecionado .preco').innerHTML
+
+  const preco2 = document.querySelector('.bebida .selecionado .preco').innerHTML
+
+  const preco3 = document.querySelector(
+    '.sobremesa .selecionado .preco'
+  ).innerHTML
+  valor1 = valores(preco1)
+  valor2 = valores(preco2)
+  valor3 = valores(preco3)
+  valortotal = valor1 + valor2 + valor3
+
+  const mensagem =
+    'Olá, gostaria de fazer o pedido:\n- Prato: ' +
+    prato +
+    '\n- Bebida: ' +
+    bebida +
+    '\n- Sobremesa: ' +
+    sobremesa +
+    '\nTotal: R$ ' +
+    valortotal.toFixed(2)
+
+  const wapp = 'https://wa.me/5531992432456?text=' + encodeURI(mensagem)
+  window.open(wapp)
+}
+
+function valores(string) {
+  let numero = string.replace(/[^0-9]/g, '')
+  return parseInt(numero) / 100
+}
