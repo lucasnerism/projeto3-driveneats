@@ -38,14 +38,15 @@ function ativarBotao() {
   let quantidade = document.getElementsByClassName('selecionado').length
 
   if (quantidade == 3) {
-    document.querySelector('button').classList.add('verde')
-    document.querySelector('button div').classList.add('fecharpedido')
-    document.querySelector('button div').innerHTML = 'Fechar Pedido'
-    document.querySelector('button').removeAttribute('disabled')
+    document.querySelector('footer button').classList.add('verde')
+    document.querySelector('footer button div').classList.add('fecharpedido')
+    document.querySelector('footer button div').innerHTML = 'Fechar Pedido'
+    document.querySelector('footer button').removeAttribute('disabled')
   }
 }
 
-function enviarpedido() {
+function confirmarPedido() {
+  document.querySelector('.overlay').style.display = 'initial'
   const prato = document.querySelector('.prato .selecionado h2').innerHTML
   const bebida = document.querySelector('.bebida .selecionado h2').innerHTML
   const sobremesa = document.querySelector(
@@ -58,10 +59,23 @@ function enviarpedido() {
   const preco3 = document.querySelector(
     '.sobremesa .selecionado .preco'
   ).innerHTML
+
+  document.querySelector('#item1 p:first-child').innerHTML = prato
+  document.querySelector('#item1 p:last-child').innerHTML = preco1
+  document.querySelector('#item2 p:first-child').innerHTML = bebida
+  document.querySelector('#item2 p:last-child').innerHTML = preco2
+  document.querySelector('#item3 p:first-child').innerHTML = sobremesa
+  document.querySelector('#item3 p:last-child').innerHTML = preco3
+
   valor1 = valores(preco1)
   valor2 = valores(preco2)
   valor3 = valores(preco3)
   valortotal = valor1 + valor2 + valor3
+
+  preco = valortotal.toFixed(2)
+  preco = preco.replace('.', ',')
+
+  document.querySelector('#total').innerHTML = 'R$ ' + preco
 
   const mensagem =
     'Olá, gostaria de fazer o pedido:\n- Prato: ' +
@@ -71,13 +85,27 @@ function enviarpedido() {
     '\n- Sobremesa: ' +
     sobremesa +
     '\nTotal: R$ ' +
-    valortotal.toFixed(2)
+    preco
 
-  const wapp = 'https://wa.me/5531992432456?text=' + encodeURI(mensagem)
-  window.open(wapp)
+  return mensagem
 }
 
 function valores(string) {
   let numero = string.replace(/[^0-9]/g, '')
   return parseInt(numero) / 100
+}
+
+function enviarPedido(mensagem) {
+  const nome = prompt('Qual o seu nome?')
+  const endereco = prompt('Qual o seu endereço?')
+  mensagem = mensagem + '\n\nNome: ' + nome + '\nEndereço: ' + endereco
+
+  const wapp = 'https://wa.me/5531992432456?text=' + encodeURI(mensagem)
+  window.open(wapp)
+  //já vou deixar o console.log aqui pra facilitar a checagem da mensagem
+  //console.log(mensagem)
+}
+
+function cancelar() {
+  document.querySelector('.overlay').style.display = 'none'
 }
