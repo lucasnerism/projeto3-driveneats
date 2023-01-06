@@ -17,79 +17,98 @@
   <body>
     <header><h1>DrivenEats</h1></header>
     <main>
-      <section>
+      <section class="prato">
         <h1>Primeiro, seu prato</h1>
         <div class="escolhas">
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarPrato(this)">
             <img src="imagens/burger.jpg" alt="" />
             <h2>Burgão brabo</h2>
             <p>Um podrão daqueles muito brabo</p>
             <p class="preco">R$15,00</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarPrato(this)">
             <img src="imagens/burger.jpg" alt="" />
             <h2>Burgão brabo</h2>
             <p>Um podrão daqueles muito brabo</p>
             <p class="preco">R$18,00</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarPrato(this)">
             <img src="imagens/burger.jpg" alt="" />
             <h2>Burgão brabo</h2>
             <p>Um podrão daqueles muito brabo</p>
             <p class="preco">R$20,00</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
         </div>
       </section>
-      <section>
+      <section class="bebida">
         <h1>Agora, sua bebida</h1>
         <div class="escolhas">
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarBebida(this)">
             <img src="imagens/coquinha.jpg" alt="" />
             <h2>Coquinha gelada</h2>
             <p>Hummmmmmm, coquinha gelada</p>
             <p class="preco">R$8,00</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarBebida(this)">
             <img src="imagens/coquinha.jpg" alt="" />
             <h2>Coquinha gelada</h2>
             <p>Hummmmmmm, coquinha gelada</p>
             <p class="preco">R$7,00</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarBebida(this)">
             <img src="imagens/coquinha.jpg" alt="" />
             <h2>Coquinha gelada</h2>
             <p>Hummmmmmm, coquinha gelada</p>
             <p class="preco">R$6,00</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
         </div>
       </section>
-      <section>
+      <section class="sobremesa">
         <h1>Por fim, sua sobremesa</h1>
         <div class="escolhas">
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarSobremesa(this)">
             <img src="imagens/pudim.jpg" alt="" />
             <h2>Pudim</h2>
             <p>O mais clássico, la do pudim.com.br</p>
             <p class="preco">R$5,90</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarSobremesa(this)">
             <img src="imagens/pudim.jpg" alt="" />
             <h2>Pudim</h2>
             <p>O mais clássico, la do pudim.com.br</p>
             <p class="preco">R$7,50</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
-          <div class="opcao">
+          <div class="opcao" onclick="selecionarSobremesa(this)">
             <img src="imagens/pudim.jpg" alt="" />
             <h2>Pudim</h2>
             <p>O mais clássico, la do pudim.com.br</p>
             <p class="preco">R$8,45</p>
+            <ion-icon name="checkmark-circle"></ion-icon>
           </div>
         </div>
       </section>
     </main>
     <footer>
-      <button><div>Selecione os 3 itens para fechar o pedido</div></button>
+      <button class="" type="button" disabled>
+        <div class="">Selecione os 3 itens para fechar o pedido</div>
+      </button>
     </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
